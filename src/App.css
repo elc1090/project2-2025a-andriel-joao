@@ -4,7 +4,6 @@
 
 .App-header {
   background-color: #282c34;
-  padding: 2rem; /* ao invés de min-height */
   display: block; /* ou flex com cuidado */
   color: white;
 }
