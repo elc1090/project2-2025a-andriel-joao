@@ -16,7 +16,7 @@ export const findExercisesByName = async (name, language) => {
     return filtered;
 };
 
-const getNameByLanguage = (exercise, language) => {
+export const getNameByLanguage = (exercise, language) => {
     const translation = exercise.translations.find(t => t.language === language);
     return translation != null ? translation.name : null;
 }
