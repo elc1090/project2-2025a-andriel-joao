@@ -1,6 +1,7 @@
 import { use, useState } from "react"
 import { ExerciseSearch } from "./ExerciseSearch"
 import { ExerciseEditor } from "./ExerciseEditor";
+import { DisplayExercise } from "./DisplayExercise";
 
 export const NewTrain = () => {
 
@@ -9,11 +10,14 @@ export const NewTrain = () => {
 
     const addExercise = (exercise) => {
         setAddedExercises(prev => [...prev, exercise]);
-        console.log(exercise)
+        setSelectedExercise(null);
     }
 
     return (
         <section>
+            { addedExercises.map((ex) => (
+                <DisplayExercise exercise={ex}/>
+            ))}
             <ExerciseSearch onSelected={setSelectedExercise}/>
             { selectedExercise && 
                 <section>

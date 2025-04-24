@@ -4,23 +4,27 @@ import imageNotFound from '../assets/Image-not-found.png'
 
 export const ExerciseEditor = ({exercise, onSave}) => {
 
-    const [imageSrc, setImageSrc] = useState()
-    
-    const seriesRef = useRef(null);
-    const executionTimeRef = useRef(null);
-    const repsRef = useRef(null);
-    const restTimeRef = useRef(null);
+    const [setsNumber, setSetsNumber] = useState(0);
+    const [executionTime, setExecutionTime] = useState(0);
+    const [reps, setReps] = useState(0);
+    const [restTime, setRestTime] = useState(0);
+    const [totalTime, setTotalTime] = useState(0);
 
     const saveExercise = () => {
         const exerciseEntry = {
             exercise: exercise,
-            series: seriesRef.current.value,
-            executionTime: executionTimeRef.current.value,
-            reps: repsRef.current.value,
-            restTime: restTimeRef.current.value
+            series: setsNumber,
+            executionTime: executionTime,
+            reps: reps,
+            restTime: restTime,
+            totalTime: totalTime
         }
         onSave(exerciseEntry)
     }
+
+    useEffect(() => {
+        setTotalTime((setsNumber * executionTime) + (restTime * (setsNumber - 1)));
+    }, [executionTime, restTime, setsNumber])
 
     return (
         <section>
@@ -28,24 +32,28 @@ export const ExerciseEditor = ({exercise, onSave}) => {
                 <div>
                     <div>{getNameByLanguage(exercise, 2)}</div>
                     { exercise.images.length > 0 &&
-                        <img src={imageSrc}/>
+                        <img src={exercise.images[0].image}/>
                     }
                     { exercise.images.length == 0 &&
                         <img src={imageNotFound}/>
                     }
                 </div>
-                {/* adicionar imagens dos músculos */}
+                {/* todo: adicionar imagens dos músculos */}
                 <div>
-                    <input ref={seriesRef} placeholder="Séries"/>
+                    <input onChange={(e) => setSetsNumber(e.target.value)} placeholder="Séries"/>
                 </div>
                 <div>
-                    <input ref={executionTimeRef} placeholder="Tempo médio de execução da série"/>
+                    <input onChange={(e) => setExecutionTime(e.target.value)} placeholder="Tempo médio de execução da série"/>
                 </div>
                 <div>
-                    <input ref={repsRef} placeholder="Repetições"/>
+                    <input onChange={(e) => setReps(e.target.value)} placeholder="Repetições"/>
                 </div>
                 <div>
-                    <input ref={restTimeRef} placeholder="Tempo de descanso entre séries"/>
+                    <input onChange={(e) => setRestTime(e.target.value)} placeholder="Tempo de descanso entre séries"/>
+                </div>
+                <div>
+                    <div>total time</div>
+                    <input readOnly={true} value={totalTime}/>
                 </div>
             </div>
             <button onClick={saveExercise}>Salvar</button>
