@@ -1,6 +1,7 @@
 //import logo from './logo.svg';
 import SimpleSlider from './utils/SliderBanner';
 import ResponsiveAppBar from './utils/NavBar';
+import PresentationText from './utils/PresentationText';
 import './App.css';
 import { Workouts } from './workout/Workouts';
 import { Meals } from './meal/Meals';
@@ -23,14 +24,18 @@ function App() {
 
     return (
         <div className="App">
+            
             <header className="App-header">
                 <ResponsiveAppBar/>
                 <SimpleSlider/>
             </header>
-            <section style={{margin: '20px'}}>
+            <section className='body'>
+                <PresentationText/>
+                {/*
                 <Workouts workouts={workouts} setWorkouts={setWorkouts}/>
                 <Meals meals={meals} setMeals={setMeals}/>
                 <Days meals={meals} workouts={workouts}/>
+                */}
             </section>
         </div>
     );

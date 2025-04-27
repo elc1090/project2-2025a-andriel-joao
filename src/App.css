@@ -6,4 +6,5 @@
   background-color: #282c34;
   display: block; /* ou flex com cuidado */
   color: white;
+  width: 100%;
 }

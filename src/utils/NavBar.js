@@ -25,7 +25,7 @@ function ResponsiveAppBar() {
 
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{backgroundColor: "#131b5b"}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <FitnessCenterIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -40,11 +40,11 @@ function ResponsiveAppBar() {
               fontFamily: 'monospace',
               fontWeight: 700,
               letterSpacing: '.3rem',
-              color: 'yellow',
+              color: 'inherit',
               textDecoration: 'none',
             }}
           >
-            WooT
+            Woo<span style={{color: "#FFE500"}}>T</span>
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -103,7 +103,7 @@ function ResponsiveAppBar() {
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
+                sx={{ my: 2, color: 'white', display: 'block', fontFamily: 'Racing Sans One, Arial, sans-serif' }}
               >
                 {page}
               </Button>

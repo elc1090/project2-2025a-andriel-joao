@@ -2,7 +2,9 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import pessoasTreinando from '../assets/pessoas-treinando.png';
+import slideBanner1 from '../assets/slide-banner-3-patos.png';
+import slideBanner2 from '../assets/slide-banner-2-treinos.png'
+import slideBanner3 from '../assets/slide-banner-1-receitas.png'
 
 export default function SimpleSlider() {
   var settings = {
@@ -19,13 +21,13 @@ export default function SimpleSlider() {
   return (
     <Slider {...settings} style={{padding: "2em"}}>
       <div>
-        <img style={{height: 400, width: 1400}} className="imagemHeader" src={pessoasTreinando} alt="Pessoas treinando"/>
+        <img style={{height: 400, width: 1400}} className="imagemHeader" src={slideBanner1} alt="Divulgacao Woot com imagem de patos atleticos no modelo de pixel art"/>
       </div>
       <div>
-        <img style={{height: 400, width: 1400}} className="imagemHeader" src="https://www.gsuplementos.com.br/upload/banner/629d18b9f32e78d53c8a3418f7e197ba.webp" alt="Divulgacao creatina"/>
+        <img style={{height: 400, width: 1400}} className="imagemHeader" src={slideBanner2} alt="Divulgacao Woot com imagem de itens de academia em modelo pixel art"/>
       </div>
       <div>
-        <img style={{height: 400, width: 1400}} src="https://www.gsuplementos.com.br/upload/banner/5d8e0c4d9d5ae8dd46edcf203b0458fc.webp" alt="Divulgacao hipercalorico"/>
+        <img style={{height: 400, width: 1400}} src={slideBanner3} alt="Divulgacao Woot com imagem de alimentos em modelo pixel art"/>
       </div>
     </Slider>
   );
