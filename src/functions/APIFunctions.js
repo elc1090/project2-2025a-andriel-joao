@@ -1,19 +1,22 @@
-export const findExercisesByName = async (name, language) => {
-    const response = await fetch("https://wger.de/api/v2/exerciseinfo?limit=1000", {
-        method: "GET",
-        headers: {
-            "Accept": "application/json",
-            "Authorization": "Token 2c483ec862409acabfe7f357245ad15737a7ba17"
-        }
-    });
+var exercises = null
 
-    const data = await response.json();
-    const filtered = data.results.filter(ex => {
+export const findExercisesByName = async (name, language) => {
+    if (exercises == null) {
+        const response = await fetch("https://wger.de/api/v2/exerciseinfo?limit=1000", {
+            method: "GET",
+            headers: {
+                "Accept": "application/json",
+                "Authorization": "Token 2c483ec862409acabfe7f357245ad15737a7ba17"
+            }
+        });
+        exercises = (await response.json()).results;
+    }
+    const filtered = exercises.filter(ex => {
         const translatedName = getNameByLanguage(ex, language);
         return translatedName != null && (translatedName.toLowerCase().includes(name.toLowerCase())); 
     });
 
-    return filtered;
+    return filtered.slice(0, 10);
 };
 
 export const getNameByLanguage = (exercise, language) => {
@@ -21,20 +24,13 @@ export const getNameByLanguage = (exercise, language) => {
     return translation != null ? translation.name : null;
 }
 
-export const findIngredientsByName = async (name, language) => {
-    const response = await fetch("https://wger.de/api/v2/ingredient?limit=1000&language=" + language, {
+export const findFoodByName = async (name) => {
+    const response = await fetch(`https://br.openfoodfacts.org/cgi/search.pl?search_terms=${encodeURIComponent(name)}&search_simple=1&action=process&json=1`, {
         method: "GET",
         headers: {
-            "Accept": "application/json",
-            "Authorization": "Token 2c483ec862409acabfe7f357245ad15737a7ba17"
+            "Accept": "application/json"
         }
     });
-
     const data = await response.json();
-    console.log(data);
-    const filtered = data.results.filter(ingredient => 
-        ingredient.name.toLowerCase().includes(name.toLowerCase())
-    );
-
-    return filtered;
+    return data.products.slice(0, 10);
 };

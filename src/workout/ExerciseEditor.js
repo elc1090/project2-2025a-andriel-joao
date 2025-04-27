@@ -56,7 +56,7 @@ export const ExerciseEditor = ({exercise, onSave}) => {
                     <input readOnly={true} value={totalTime}/>
                 </div>
             </div>
-            <button onClick={saveExercise}>Salvar</button>
+            <button onClick={saveExercise}>Adicionar</button>
         </section>
     )
 }
