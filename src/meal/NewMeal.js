@@ -31,6 +31,7 @@ export const NewMeal = ({onSave}) => {
     
     return (
         <section>
+            <h4>Nova refeição</h4>
             <div>
                 <input placeholder="Nome" onChange={(e) => setName(e.target.value)}/>
                 <input placeholder="Tempo de preparação" onChange={(e) => setPrepararionTime(e.target.value)}/>

@@ -13,6 +13,7 @@ export const Meals = ({meals, setMeals}) => {
 
     return (
         <section>
+            <h3>Refeições</h3>
             { meals.map((meal) => (
                 <DisplayMeal key={meal.name} meal={meal}/>
             ))}

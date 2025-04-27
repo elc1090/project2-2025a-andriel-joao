@@ -29,10 +29,13 @@ export const getNameByLanguage = (exercise, language) => {
 }
 
 export const getFoodByName = async (name) => {
-    const response = await fetch(`https://br.openfoodfacts.org/cgi/search.pl?search_terms=${encodeURIComponent(name)}&search_simple=1&action=process&json=1`, {
+    const proxyUrl = "https://corsproxy.io/?";
+    const apiUrl = `https://br.openfoodfacts.org/cgi/search.pl?search_terms=${encodeURIComponent(name)}&search_simple=1&action=process&json=1`;
+
+    const response = await fetch(`${proxyUrl}${encodeURIComponent(apiUrl)}`, {
         method: "GET",
         headers: {
-            "Accept": "application/json"
+            "Accept": "application/json",
         }
     });
     const data = await response.json();

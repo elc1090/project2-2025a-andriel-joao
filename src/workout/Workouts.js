@@ -14,6 +14,7 @@ export const Workouts = ({workouts, setWorkouts}) => {
     
     return (
         <section>
+            <h3>Treinos</h3>
             {workouts.map((workout) => (
                 <DisplayWorkout workout={workout} key={workout.name}/>
             ))}

@@ -29,6 +29,7 @@ export const NewWorkout = ({onSave}) => {
 
     return (
         <section>
+            <h4>Novo treino</h4>
             <article>
                 <input onChange={(e) => setName(e.target.value)} placeholder="Nome"/>
                 <SelectDayOfWeek onChange={setDayOfWeek}/>

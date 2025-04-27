@@ -5,6 +5,7 @@ import './App.css';
 import { Workouts } from './workout/Workouts';
 import { Meals } from './meal/Meals';
 import { useState, useEffect } from "react"
+import { Days } from './days/Days';
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
             <section style={{margin: '20px'}}>
                 <Workouts workouts={workouts} setWorkouts={setWorkouts}/>
                 <Meals meals={meals} setMeals={setMeals}/>
+                <Days meals={meals} workouts={workouts}/>
             </section>
         </div>
     );
