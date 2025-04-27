@@ -3,15 +3,20 @@ import SimpleSlider from './utils/SliderBanner';
 import ResponsiveAppBar from './utils/NavBar';
 import './App.css';
 import { Workouts } from './workout/Workouts';
+import { Meals } from './meal/Meals';
 import { useState, useEffect } from "react"
 
 function App() {
 
     const [workouts, setWorkouts] = useState([])
+    const [meals, setMeals] = useState([])
 
     useEffect(() => {
         if (localStorage.getItem("workouts") != null) {
             setWorkouts(JSON.parse(localStorage.getItem("workouts")));
+        }
+        if (localStorage.getItem("meals") != null) {
+            setMeals(JSON.parse(localStorage.getItem("meals")));
         }
     }, [])
 
@@ -23,6 +28,7 @@ function App() {
             </header>
             <section style={{margin: '20px'}}>
                 <Workouts workouts={workouts} setWorkouts={setWorkouts}/>
+                <Meals meals={meals} setMeals={setMeals}/>
             </section>
         </div>
     );

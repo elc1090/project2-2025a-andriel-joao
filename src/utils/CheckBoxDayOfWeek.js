@@ -2,21 +2,21 @@ import React, { useState } from 'react';
 
 const CheckBoxDayOfWeek = ({ onChange }) => {
     const daysOfWeek = [
-        { name: 'Domingo' },
-        { name: 'Segunda-feira' },
-        { name: 'Terça-feira' },
-        { name: 'Quarta-feira' },
-        { name: 'Quinta-feira' },
-        { name: 'Sexta-feira' },
-        { name: 'Sábado' },
+        { name: 'Domingo', value: 7 },
+        { name: 'Segunda-feira', value: 1 },
+        { name: 'Terça-feira', value: 2 },
+        { name: 'Quarta-feira', value: 3 },
+        { name: 'Quinta-feira', value: 4 },
+        { name: 'Sexta-feira', value: 5 },
+        { name: 'Sábado', value: 6 },
     ];
 
     const [selectedDays, setSelectedDays] = useState([]);
 
-    const handleCheckboxChange = (dayName) => {
-        const updatedSelectedDays = selectedDays.includes(dayName)
-            ? selectedDays.filter((name) => name !== dayName)
-            : [...selectedDays, dayName];
+    const handleCheckboxChange = (dayValue) => {
+        const updatedSelectedDays = selectedDays.includes(dayValue)
+            ? selectedDays.filter((name) => name !== dayValue)
+            : [...selectedDays, dayValue];
 
         setSelectedDays(updatedSelectedDays);
 
@@ -27,28 +27,19 @@ const CheckBoxDayOfWeek = ({ onChange }) => {
 
     return (
         <div>
-            <h3>Selecione os dias da semana:</h3>
             {daysOfWeek.map((day) => (
                 <div key={day.name}>
                     <label>
                         <input
                             type="checkbox"
-                            value={day.name}
-                            checked={selectedDays.includes(day.name)}
-                            onChange={() => handleCheckboxChange(day.name)}
+                            value={day.value}
+                            checked={selectedDays.includes(day.value)}
+                            onChange={() => handleCheckboxChange(day.value)}
                         />
                         {day.name}
                     </label>
                 </div>
             ))}
-            <div>
-                <h4>Dias selecionados:</h4>
-                <p>
-                    {selectedDays.length > 0
-                        ? selectedDays.join(', ')
-                        : 'Nenhum dia selecionado'}
-                </p>
-            </div>
         </div>
     );
 };

@@ -31,12 +31,6 @@ export const ExerciseEditor = ({exercise, onSave}) => {
             <div style={{display: 'flex'}}>
                 <div>
                     <div>{getNameByLanguage(exercise, 2)}</div>
-                    { exercise.images.length > 0 &&
-                        <img src={exercise.images[0].image}/>
-                    }
-                    { exercise.images.length == 0 &&
-                        <img src={imageNotFound}/>
-                    }
                 </div>
                 {/* todo: adicionar imagens dos músculos */}
                 <div>

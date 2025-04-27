@@ -31,7 +31,15 @@ export const ExerciseSearch = ({ onSelected }) => {
                     <div>
                         { exercises.map((exercise) => {
                             return (
-                                <div key={exercise.id} onClick={() => selectedExercise(exercise)}>{getNameByLanguage(exercise, language)}</div>
+                                <div key={exercise.id} onClick={() => selectedExercise(exercise)}>
+                                    {getNameByLanguage(exercise, language)}
+                                    { exercise.images.length > 0 &&
+                                        <img src={exercise.images[0].image}/>
+                                    }
+                                    { exercise.images.length == 0 &&
+                                        <em>Exercício sem imagem</em>
+                                    }
+                                </div>
                             )   
                         })}
                     </div>
