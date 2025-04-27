@@ -31,12 +31,13 @@ export const NewWorkout = ({onSave}) => {
         <section>
             <h4>Novo treino</h4>
             <article>
-                <input onChange={(e) => setName(e.target.value)} placeholder="Nome"/>
+                <input onChange={(e) => setName(e.target.value)} placeholder="Nome do treino"/>
                 <SelectDayOfWeek onChange={setDayOfWeek}/>
             </article>
             { addedExercises.map((ex) => (
                 <DisplayExercise exercise={ex}/>
             ))}
+            <h5>Adicionar exercícios</h5>
             <ExerciseSearch onSelected={setSelectedExercise}/>
             { selectedExercise && 
                 <section>

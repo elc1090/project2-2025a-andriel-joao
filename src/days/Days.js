@@ -27,6 +27,7 @@ export const Days = ({workouts, meals}) => {
 
     return (
         <section>
+            <h3>Planejamento diário</h3>
             {daysOfWeek.map((day) => (
                 <div>
                     <h4>{day.label}</h4>

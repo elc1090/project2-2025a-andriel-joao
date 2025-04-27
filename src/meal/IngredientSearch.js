@@ -21,7 +21,7 @@ export const IngredientSearch = ({onSelect}) => {
     return (
         <article>
             <section>
-                <input placeholder="Nome" onChange={(e) => setFilteringName(e.target.value)}/>
+                <input placeholder="Nome do ingrediente" onChange={(e) => setFilteringName(e.target.value)}/>
                 <button type="button" onClick={searchIngredients}>Buscar</button>
             </section>
             <section>

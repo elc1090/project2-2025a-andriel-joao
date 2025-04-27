@@ -33,10 +33,11 @@ export const NewMeal = ({onSave}) => {
         <section>
             <h4>Nova refeição</h4>
             <div>
-                <input placeholder="Nome" onChange={(e) => setName(e.target.value)}/>
+                <input placeholder="Nome da refeição" onChange={(e) => setName(e.target.value)}/>
                 <input placeholder="Tempo de preparação" onChange={(e) => setPrepararionTime(e.target.value)}/>
                 <CheckBoxDayOfWeek onChange={setDaysOfWeek}/>
             </div>
+            <h5>Adicionar ingredientes</h5>
             {ingredients.map((ingredient) => (
                 <DisplayIngredient ingredient={ingredient}/>
             ))}
