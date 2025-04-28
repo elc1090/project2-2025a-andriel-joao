@@ -3,6 +3,10 @@ import { ExerciseSearch } from "./ExerciseSearch"
 import { ExerciseEditor } from "./ExerciseEditor";
 import { DisplayExercise } from "./DisplayExercise";
 import SelectDayOfWeek from "../utils/SelectDayOfWeek";
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import Trampolim from '../assets/trampolim.png';
+import Halteres from '../assets/pesos-academia.png';
 
 export const NewWorkout = ({onSave}) => {
 
@@ -28,8 +32,19 @@ export const NewWorkout = ({onSave}) => {
     }
 
     return (
-        <section>
-            <h4>Novo treino</h4>
+        <Box sx={{}}>
+            <div className='HeaderContainer' style={{display: 'flex'}}>
+                <Typography variant="h5" component="h1" gutterBottom sx={{ fontFamily: 'Racing Sans One, Arial, sans-serif' }}>
+                Adicionar Novo treino
+                </Typography>
+                <img src={Trampolim} style={{height: '27px', width: '40px', paddingLeft: '10px'}} alt='Imagem de halter no modelo pixel art'/>
+            </div>
+            <hr style={{
+                border: 'none',
+                height: '1px',
+                backgroundColor: '#e0e0e0', // cinza bem claro
+                margin: '20px 0' // espaçamento vertical
+            }} />
             <article>
                 <input onChange={(e) => setName(e.target.value)} placeholder="Nome do treino"/>
                 <SelectDayOfWeek onChange={setDayOfWeek}/>
@@ -37,16 +52,27 @@ export const NewWorkout = ({onSave}) => {
             { addedExercises.map((ex) => (
                 <DisplayExercise exercise={ex}/>
             ))}
-            <h5>Adicionar exercícios</h5>
+            <div className='HeaderContainer' style={{display: 'flex'}}>
+                <Typography variant="h5" component="h1" gutterBottom sx={{ fontFamily: 'Racing Sans One, Arial, sans-serif' }}>
+                Adicionar exercícios
+                </Typography>
+                <img src={Halteres} style={{height: '40px', width: '40px', paddingLeft: '10px'}} alt='Imagem de halter no modelo pixel art'/>
+            </div>
+            <hr style={{
+                border: 'none',
+                height: '1px',
+                backgroundColor: '#e0e0e0', // cinza bem claro
+                margin: '20px 0' // espaçamento vertical
+            }} />
             <ExerciseSearch onSelected={setSelectedExercise}/>
             { selectedExercise && 
-                <section>
+                <Box>
                     <ExerciseEditor onSave={addExercise} exercise={selectedExercise} key={selectedExercise.id}/>
-                </section>
+                </Box>
             }
             <article>
                 <button onClick={saveWorkout} type="button">Salvar</button>
             </article>
-        </section>
+        </Box>
     )
 }

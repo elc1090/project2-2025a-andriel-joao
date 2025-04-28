@@ -1,6 +1,8 @@
 import { useEffect, useState, useRef } from "react"
 import { findExerciseImage, getNameByLanguage } from "../functions/APIFunctions"
 import imageNotFound from '../assets/Image-not-found.png'
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
 export const ExerciseEditor = ({exercise, onSave}) => {
 
@@ -27,7 +29,7 @@ export const ExerciseEditor = ({exercise, onSave}) => {
     }, [executionTime, restTime, setsNumber])
 
     return (
-        <section>
+        <Box>
             <div style={{display: 'flex'}}>
                 <div>
                     <div>{getNameByLanguage(exercise, 2)}</div>
@@ -51,6 +53,6 @@ export const ExerciseEditor = ({exercise, onSave}) => {
                 </div>
             </div>
             <button onClick={saveExercise}>Adicionar</button>
-        </section>
+        </Box>
     )
 }

@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
 import { NewWorkout } from "./NewWorkout";
 import { DisplayWorkout } from "./DisplayWorkout";
-
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import Bola from '../assets/bola.png'
 export const Workouts = ({workouts, setWorkouts}) => {
 
     const addWorkout = (addedWorkout) => {
@@ -13,12 +15,23 @@ export const Workouts = ({workouts, setWorkouts}) => {
     }
     
     return (
-        <section>
-            <h3>Treinos</h3>
+        <Box sx={{paddingInline: "10%", textAlign: 'justify', marginTop: "30px" }}>
+            <div className='HeaderContainer' style={{display: 'flex'}}>
+                <Typography variant="h3" component="h1" gutterBottom sx={{ fontFamily: 'Racing Sans One, Arial, sans-serif' }}>
+                    Treinos
+                </Typography>
+                <img src={Bola} style={{height: '62px', width: '56px', paddingLeft: '10px'}} alt='Imagem de halter no modelo pixel art'/>
+            </div>
+            <hr style={{
+                border: 'none',
+                height: '1px',
+                backgroundColor: '#e0e0e0', // cinza bem claro
+                margin: '32px 0' // espaçamento vertical
+            }} />
             {workouts.map((workout) => (
                 <DisplayWorkout workout={workout} key={workout.name}/>
             ))}
             <NewWorkout onSave={addWorkout}/>
-        </section>
+        </Box>
     )
 }

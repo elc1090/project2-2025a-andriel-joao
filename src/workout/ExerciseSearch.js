@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { findExercisesByName, getNameByLanguage } from "../functions/APIFunctions";
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
 export const ExerciseSearch = ({ onSelected }) => {
 
@@ -20,7 +22,7 @@ export const ExerciseSearch = ({ onSelected }) => {
     }
 
     return (
-        <section>
+        <Box>
             <input onChange={(e) => setFilteringName(e.target.value)} placeholder='Nome do exercício'/>
             <button type="button" onClick={handleSearch}>Buscar</button>
             <div className="exercise-options">
@@ -45,7 +47,7 @@ export const ExerciseSearch = ({ onSelected }) => {
                     </div>
                 }
             </div>
-        </section>
+        </Box>
     )
 }
 
