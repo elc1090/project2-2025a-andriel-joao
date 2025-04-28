@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Trampolim from '../assets/trampolim.png';
 import Halteres from '../assets/pesos-academia.png';
+import TextField from '@mui/material/TextField';
 
 export const NewWorkout = ({onSave}) => {
 
@@ -33,7 +34,7 @@ export const NewWorkout = ({onSave}) => {
 
     return (
         <Box sx={{}}>
-            <div className='HeaderContainer' style={{display: 'flex'}}>
+            <div className='HeaderContainer' style={{display: 'flex',  marginTop: "5em"}}>
                 <Typography variant="h5" component="h1" gutterBottom sx={{ fontFamily: 'Racing Sans One, Arial, sans-serif' }}>
                 Adicionar Novo treino
                 </Typography>
@@ -45,14 +46,27 @@ export const NewWorkout = ({onSave}) => {
                 backgroundColor: '#e0e0e0', // cinza bem claro
                 margin: '20px 0' // espaçamento vertical
             }} />
-            <article>
-                <input onChange={(e) => setName(e.target.value)} placeholder="Nome do treino"/>
+            <article style={{display: "flex"}}>
+                <Box
+                    component="form"
+                    sx={{ '& > :not(style)': { m: 1, width: '25ch' } }}
+                    noValidate
+                    autoComplete="off"
+                >
+                    <TextField
+                        id="nome-treino"
+                        label="Nome do treino"
+                        variant="outlined"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                    />
+                </Box>                
                 <SelectDayOfWeek onChange={setDayOfWeek}/>
             </article>
             { addedExercises.map((ex) => (
                 <DisplayExercise exercise={ex}/>
             ))}
-            <div className='HeaderContainer' style={{display: 'flex'}}>
+            <div className='HeaderContainer' style={{display: 'flex', marginTop: "5em"}}>
                 <Typography variant="h5" component="h1" gutterBottom sx={{ fontFamily: 'Racing Sans One, Arial, sans-serif' }}>
                 Adicionar exercícios
                 </Typography>

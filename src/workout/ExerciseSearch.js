@@ -2,6 +2,9 @@ import { useState } from "react";
 import { findExercisesByName, getNameByLanguage } from "../functions/APIFunctions";
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button'
+import Skeleton from '@mui/material/Skeleton';
 
 export const ExerciseSearch = ({ onSelected }) => {
 
@@ -22,12 +25,40 @@ export const ExerciseSearch = ({ onSelected }) => {
     }
 
     return (
-        <Box>
-            <input onChange={(e) => setFilteringName(e.target.value)} placeholder='Nome do exercício'/>
-            <button type="button" onClick={handleSearch}>Buscar</button>
+        <Box >
+            <Box sx={{display: "flex"}}>
+                <Box
+                    component="form"
+                    sx={{ '& > :not(style)': { m: 1, width: '25ch' } }}
+                    noValidate
+                    autoComplete="off"
+                    >
+                    <TextField
+                        id="nome-exercicio"
+                        label="Nome do exercício"
+                        variant="outlined"
+                        value={filteringName}
+                        onChange={(e) => setFilteringName(e.target.value)}
+                    />
+                </Box>
+                <Button
+                    variant="contained"
+                    onClick={handleSearch}
+                    disabled={loading}
+                    color="primary"
+                    sx={{ m: 1 }}
+                >
+                    {loading ? "Buscando..." : "Buscar 🔍"}
+                </Button>
+            </Box>
+            
             <div className="exercise-options">
-                {loading &&
-                    <span>Finge que é um ícone de coisinha carregando</span>
+                {loading && <>
+                    <Skeleton sx={{height: "500px", width: "500px"}}/>
+                    <Skeleton sx={{height: "500px", width: "500px"}}/>
+                    <Skeleton sx={{height: "500px", width: "500px"}}/>
+                </>
+
                 }
                 {!loading &&
                     <div>

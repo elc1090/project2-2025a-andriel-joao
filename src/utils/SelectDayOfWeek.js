@@ -1,4 +1,9 @@
-import React from 'react';
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 
 const SelectDayOfWeek = ({ value, onChange }) => {
     const daysOfWeek = [
@@ -11,17 +16,32 @@ const SelectDayOfWeek = ({ value, onChange }) => {
         { value: 6, label: 'Sábado' },
     ];
 
+    const handleChange = (event) => {
+        onChange(event.target.value);
+    };
+
     return (
-        <select value={value} onChange={(e) => onChange(e.target.value)}>
-            <option value="" disabled>
-                Selecione um dia
-            </option>
-            {daysOfWeek.map((day) => (
-                <option key={day.value} value={day.value}>
-                    {day.label}
-                </option>
-            ))}
-        </select>
+        <Box sx={{marginLeft: 5, marginTop: 1, width: "12em"}}>
+            <FormControl fullWidth>
+                <InputLabel id="select-day-label">Dia da Semana</InputLabel>
+                <Select
+                    labelId="select-day-label"
+                    id="select-day"
+                    value={value}
+                    label="Dia da Semana"
+                    onChange={handleChange}
+                >
+                    <MenuItem value="" disabled>
+                        Selecione um dia
+                    </MenuItem>
+                    {daysOfWeek.map((day) => (
+                        <MenuItem key={day.value} value={day.value}>
+                            {day.label}
+                        </MenuItem>
+                    ))}
+                </Select>
+            </FormControl>
+        </Box>
     );
 };
 
