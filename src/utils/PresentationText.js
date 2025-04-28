@@ -2,8 +2,61 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import patoIcon from '../assets/pato-gym.png';
+import Personas from './CardPersonas'
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import { FitScreen } from '@mui/icons-material';
 
 function PresentationText (){
+    var settings = {
+        dots: false,
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        useCSS: true
+    };
+
+    const personas = [
+        {
+            name: "Lucas Lima",
+            opinion: "Com a minha rotina de freelancer, sempre foi difícil organizar os treinos e alimentação. O WorkOutOfTime me ajudou a planejar treinos rápidos e ajustar minha alimentação de forma prática e eficiente!",
+            image: "https://stardewvalleywiki.com/mediawiki/images/0/04/Alex.png" // Você pode passar a URL ou deixar vazio
+        },
+        {
+            name: "Mariana Martins",
+            opinion: "Minha rotina de advogada sempre foi um desafio para conciliar treinos e alimentação. O WorkOutOfTime me ajudou a ter treinos rápidos e receitas saudáveis, tudo sem perder tempo.",
+            image: "https://stardewvalleywiki.com/mediawiki/images/1/1b/Haley.png"
+        },
+        {
+            name: "Felipe Ferreira",
+            opinion: "Como desenvolvedor, eu ficava o dia todo na frente do computador e não conseguia manter uma rotina de treino e alimentação. O WorkOutOfTime facilitou a organização de treinos rápidos e refeições práticas.",
+            image: "https://stardewvalleywiki.com/mediawiki/images/8/8b/Shane.png"
+        },
+        {
+            name: "Beatriz Barbosa",
+            opinion: "Com a agenda apertada no marketing, eu nunca tinha tempo para treinar. O WorkOutOfTime me ajudou a encaixar treinos rápidos e receitas práticas, o que me permitiu manter a saúde em dia.",
+            image: "https://stardewvalleywiki.com/mediawiki/images/2/28/Emily.png"
+        },
+        {
+            name: "Carlos Costa",
+            opinion: "Eu sou personal trainer e o WorkOutOfTime ajudou a organizar os treinos dos meus clientes de forma eficiente, sem precisar de muita perda de tempo. Agora, consigo personalizar planos em minutos!",
+            image: "https://stardewvalleywiki.com/mediawiki/images/7/71/Krobus.png"
+        },
+        {
+            name: "Sofia Souza",
+            opinion: "Com a rotina intensa de minha empresa, sempre foi difícil conciliar minha alimentação e o treino. O WorkOutOfTime me oferece planos rápidos e completos, sem sair do meu foco de trabalho.",
+            image: "https://stardewvalleywiki.com/mediawiki/images/4/4e/Sandy.png"
+        },
+        {
+            name: "Ricardo Rocha",
+            opinion: "Trabalho em turnos e sempre era difícil manter uma alimentação saudável. O WorkOutOfTime me permite ter receitas rápidas e treinos curtos, sem perder a qualidade do resultado.",
+            image: "https://stardewvalleywiki.com/mediawiki/images/9/94/Sam.png"
+        }
+    ];
+    
     return (
         <Box component="section" sx={{ paddingInline: "10%", textAlign: 'justify', marginTop: "30px" }}>
             <div className='HeaderContainer' style={{display: 'flex'}}>
@@ -62,6 +115,31 @@ function PresentationText (){
             <Typography paragraph>
                 Nossa missão é simples: <strong>te ajudar a ser constante, mesmo com pouco tempo</strong>. Afinal, saúde e performance não podem esperar.
             </Typography>
+
+            <div className='HeaderContainer' style={{display: 'flex', marginTop: "20px" }}>
+                <Typography variant="h3" component="h1" gutterBottom sx={{ fontFamily: 'Racing Sans One, Arial, sans-serif'}}>
+                    O que nossos usuários dizem
+                </Typography>
+                <img src='https://habboxwiki.com/wiki/images/b/be/VPV22.png' style={{width: "50px", height: "50px", paddingLeft: '10px'}}/>
+            </div>
+            <hr style={{
+                border: 'none',
+                height: '1px',
+                backgroundColor: '#e0e0e0', // cinza bem claro
+                margin: '32px 0' // espaçamento vertical
+            }} />
+            <Slider  {...settings} style={{ }}>
+                {personas.map((persona, index) => (
+                    <Personas 
+                        key={index}
+                        name={persona.name}
+                        opinion={persona.opinion}
+                        image={persona.image}
+                    />
+                ))}
+            </Slider>
+
+
 
             <Typography variant="h6" component="h3" sx={{ fontStyle: 'italic', mt: 3 ,  fontFamily: 'Racing Sans One, Arial, sans-serif' }}>
                 WorkOutOf<span style={{color: "#FFE500"}}>Time</span> — Para marombeiros sem <span style={{color: "#FFE500"}}>tempo.</span>
