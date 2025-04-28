@@ -86,7 +86,7 @@ function PresentationText (){
 
             <div className='HeaderContainer' style={{display: 'flex', marginTop: "20px" }}>
                 <Typography variant="h3" component="h1" gutterBottom sx={{ fontFamily: 'Racing Sans One, Arial, sans-serif'}}>
-                    O que oferecemos
+                    O que oferecemos?
                 </Typography>
                 <img src='https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_ssOP5i1GVAAMAi-BjRz6sfHGdv2qFTmdx6hIB-3D0fHMQQYK0JV_rh8p98p91LSmF0n1GIWVvcZ7ie_U0I4oojtujhubPfVQMrvOR4-lKjbMq8jDh87wkFgClI_c0vCIqd_-cAFVEY8yTX63bUPWm80o4Ax_O4QLwbUayhEw=s0-d' style={{width: "55px", height: "80px", paddingLeft: '10px'}}/>
             </div>
@@ -118,9 +118,9 @@ function PresentationText (){
 
             <div className='HeaderContainer' style={{display: 'flex', marginTop: "20px" }}>
                 <Typography variant="h3" component="h1" gutterBottom sx={{ fontFamily: 'Racing Sans One, Arial, sans-serif'}}>
-                    O que nossos usuários dizem
+                    O que nossos usuários dizem?
                 </Typography>
-                <img src='https://habboxwiki.com/wiki/images/b/be/VPV22.png' style={{width: "50px", height: "50px", paddingLeft: '10px'}}/>
+                <img src='https://habboxwiki.com/wiki/images/b/be/VPV22.png' style={{width: "48px", height: "50px", paddingLeft: '10px'}}/>
             </div>
             <hr style={{
                 border: 'none',
@@ -141,7 +141,7 @@ function PresentationText (){
 
 
 
-            <Typography variant="h6" component="h3" sx={{ fontStyle: 'italic', mt: 3 ,  fontFamily: 'Racing Sans One, Arial, sans-serif' }}>
+            <Typography variant="h6" component="h3" sx={{ fontStyle: 'italic', mt: 3 ,  fontFamily: 'Racing Sans One, Arial, sans-serif', marginBottom: 5}}>
                 WorkOutOf<span style={{color: "#FFE500"}}>Time</span> — Para marombeiros sem <span style={{color: "#FFE500"}}>tempo.</span>
             </Typography>
         </Box>
