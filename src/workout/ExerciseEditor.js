@@ -15,7 +15,7 @@ export const ExerciseEditor = ({exercise, onSave}) => {
     const saveExercise = () => {
         const exerciseEntry = {
             exercise: exercise,
-            series: setsNumber,
+            sets: setsNumber,
             executionTime: executionTime,
             reps: reps,
             restTime: restTime,
