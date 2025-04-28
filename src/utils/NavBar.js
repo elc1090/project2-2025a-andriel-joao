@@ -12,7 +12,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
 const pages = ['Treinos', 'Refeições', 'Planejamento Diário'];
 
-function ResponsiveAppBar() {
+function ResponsiveAppBar({setCurrentPage}) {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -75,7 +75,10 @@ function ResponsiveAppBar() {
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} onClick={() => {
+                  setCurrentPage(page);
+                  handleCloseNavMenu(); 
+                }}>
                   <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
                 </MenuItem>
               ))}
@@ -102,7 +105,10 @@ function ResponsiveAppBar() {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={() => {
+                  setCurrentPage(page);
+                  handleCloseNavMenu(); 
+                }}
                 sx={{ my: 2, color: 'white', display: 'block', fontFamily: 'Racing Sans One, Arial, sans-serif' }}
               >
                 {page}

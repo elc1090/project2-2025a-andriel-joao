@@ -8,7 +8,11 @@ import { Meals } from './meal/Meals';
 import { useState, useEffect } from "react"
 import { Days } from './days/Days';
 
+export const pages = ['Treinos', 'Refeições', 'Planejamento Diário'];
+
 function App() {
+
+    const [currentPage, setCurrentPage] = useState(null);
 
     const [workouts, setWorkouts] = useState([])
     const [meals, setMeals] = useState([])
@@ -26,16 +30,22 @@ function App() {
         <div className="App">
             
             <header className="App-header">
-                <ResponsiveAppBar/>
+                <ResponsiveAppBar setCurrentPage={setCurrentPage}/>
                 <SimpleSlider/>
             </header>
             <section className='body'>
-                <PresentationText/>
-                {/*
-                <Workouts workouts={workouts} setWorkouts={setWorkouts}/>
-                <Meals meals={meals} setMeals={setMeals}/>
-                <Days meals={meals} workouts={workouts}/>
-                */}
+                {currentPage == null &&
+                    <PresentationText/>
+                }
+                {currentPage == "Treinos" &&
+                    <Workouts workouts={workouts} setWorkouts={setWorkouts}/>
+                }
+                {currentPage == "Refeições" &&                
+                    <Meals meals={meals} setMeals={setMeals}/>
+                }
+                {currentPage == "Planejamento Diário" &&    
+                    <Days meals={meals} workouts={workouts}/>
+                }
             </section>
         </div>
     );
