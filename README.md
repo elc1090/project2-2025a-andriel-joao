@@ -1,6 +1,6 @@
 # Projeto: Consumindo uma API pública
 
-![Substitua a imagem ao lado por um screenshot do seu projeto](https://mdswanson.com/static/chops-ux-step-4.png "Screenshot do projeto")
+![Substitua a imagem ao lado por um screenshot do seu projeto](src/assets/screenshot.png "Screenshot do projeto")
 
 
 [Deploy no Git Hub pages](https://elc1090.github.io/project2-2025a-andriel-joao/) 🌐
