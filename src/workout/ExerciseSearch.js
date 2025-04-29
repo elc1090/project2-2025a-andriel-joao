@@ -84,34 +84,34 @@ export const ExerciseSearch = ({ onSelected }) => {
                 {!loading &&
                     <Slider {...settings}>
                         {exercises.map((exercise) => (
-                        <Card
-                            key={exercise.id}
-                            sx={{ maxWidth: 300, margin: '10px' }}
-                            onClick={() => selectedExercise(exercise)}
-                        >
-                        <CardActionArea>
-                            {exercise.images.length > 0 ? (
-                            <CardMedia
-                                component="img"
-                                height="140"
-                                image={exercise.images[0].image}
-                                alt={getNameByLanguage(exercise, language)}
-                            />
-                            ) : (
-                            <CardContent sx={{height: "8em"}}>
-                                <Typography variant="body1" sx={{ color: 'text.secondary', height: 140, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                    Exercício sem imagem
-                                </Typography>
-                            </CardContent>
-                            )}
-                            <CardContent sx={{height: "15em"}}>
-                                <Typography gutterBottom variant="body1" component="div">
-                                    {getNameByLanguage(exercise, language)}
-                                </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                        </Card>
-                    ))}
+                            <Card
+                                key={exercise.id}
+                                sx={{ maxWidth: 300, margin: '10px' }}
+                                onClick={() => selectedExercise(exercise)}
+                            >
+                            <CardActionArea>
+                                {exercise.images.length > 0 ? (
+                                <CardMedia
+                                    component="img"
+                                    height="140"
+                                    image={exercise.images[0].image}
+                                    alt={getNameByLanguage(exercise, language)}
+                                />
+                                ) : (
+                                <CardContent sx={{height: "8em"}}>
+                                    <Typography variant="body1" sx={{ color: 'text.secondary', height: 140, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                        Exercício sem imagem
+                                    </Typography>
+                                </CardContent>
+                                )}
+                                <CardContent sx={{height: "15em"}}>
+                                    <Typography gutterBottom variant="body1" component="div">
+                                        {getNameByLanguage(exercise, language)}
+                                    </Typography>
+                                </CardContent>
+                            </CardActionArea>
+                            </Card>
+                        ))}
                     </Slider>
                 }
             </div>

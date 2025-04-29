@@ -9,6 +9,9 @@ import Typography from "@mui/material/Typography";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { parseTime } from "../utils/Time";
+import Button from '@mui/material/Button'
+import SaveIcon from '@mui/icons-material/Save';
+
 export const NewMeal = ({onSave}) => {
     
     const [ingredients, setIngredients] = useState([]); 
@@ -86,10 +89,18 @@ export const NewMeal = ({onSave}) => {
                 <DisplayIngredient ingredient={ingredient}/>
             ))}
             <IngredientSearch onSelect={setSelectedIngredient}/>
-            {selectedIngredient &&
-                <IngredientEditor onSave={addIngredient} ingredient={selectedIngredient}/>
+                    {selectedIngredient &&
+            <IngredientEditor onSave={addIngredient} ingredient={selectedIngredient}/>
             }
-            <button onClick={saveMeal}>Salvar</button>
+            <Button
+                variant="contained"
+                onClick={saveMeal}
+                endIcon={<SaveIcon/>}
+                color="success"
+                sx={{ m: 1, height: 50, width: 200}}
+            >
+                    Salvar 
+            </Button>
         </Box>
     )
 }

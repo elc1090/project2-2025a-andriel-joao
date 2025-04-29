@@ -36,7 +36,7 @@ export const Meals = ({meals, setMeals}) => {
                 </Paper>
             ))}
             </Stack>
-            <br/>
+            <br/><br/>
             <NewMeal onSave={addMeal}/>
         </Box>
     )
