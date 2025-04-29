@@ -29,7 +29,6 @@ No início do desenvolvimento, a estrutura básica da landing page — composta 
 
 #### Ambiente de desenvolvimento
 
-Substitua este trecho por uma lista detalhada dos ambientes/ferramentas de desenvolvimento utilizadas (por exemplo, VS Code + alguma extensão, etc.)
 - Visual Studio Code
 - Visual Studio
 
