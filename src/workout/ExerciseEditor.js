@@ -51,25 +51,25 @@ export const ExerciseEditor = ({exercise, onSave}) => {
                         label="Séries"
                         variant="outlined"
                         onChange={(e) => setSetsNumber(e.target.value)}
-                        sx={{marginInline: 3}}
+                        sx={{marginInline: 3, mb: 2}}
                     />
                     <TextField
                         label="Tempo médio de execução da série"
                         variant="outlined"
                         onChange={(e) => setExecutionTime(e.target.value)}
-                        sx={{marginInline: 3, width: "300px"}}
+                        sx={{marginInline: 3, width: "300px", mb: 2}}
                     />
                     <TextField
                         label="Repetições"
                         variant="outlined"
                         onChange={(e) => setReps(e.target.value)}
-                        sx={{marginInline: 3}}
+                        sx={{marginInline: 3, mb: 2}}
                     />
                     <TextField
                         label="Tempo de descanso entre séries"
                         variant="outlined"
                         onChange={(e) => setRestTime(e.target.value)}
-                        sx={{marginInline: 3, width: "300px"}}
+                        sx={{marginInline: 3, width: "300px", mb: 2}}
                     />
                     <TextField
                         label="Tempo total (somado)"
@@ -78,7 +78,7 @@ export const ExerciseEditor = ({exercise, onSave}) => {
                         InputProps={{
                             readOnly: true,
                         }}
-                        sx={{marginInline: 3}}  
+                        sx={{marginInline: 3, mb: 2}}  
                     />
                 </Box>
                 

@@ -3,7 +3,11 @@ import CheckBoxDayOfWeek from "../utils/CheckBoxDayOfWeek";
 import { IngredientSearch } from "./IngredientSearch";
 import { IngredientEditor } from "./IngredientEditor";
 import { DisplayIngredient } from "./DisplayIngredient";
-
+import OvoFrito from '../assets/ovo-frito.png';
+import Melancia from '../assets/melancia.png';
+import Typography from "@mui/material/Typography";
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
 export const NewMeal = ({onSave}) => {
     
     const [ingredients, setIngredients] = useState([]); 
@@ -30,14 +34,46 @@ export const NewMeal = ({onSave}) => {
     }
     
     return (
-        <section>
-            <h4>Nova refeição</h4>
-            <div>
-                <input placeholder="Nome da refeição" onChange={(e) => setName(e.target.value)}/>
-                <input placeholder="Tempo de preparação" onChange={(e) => setPrepararionTime(e.target.value)}/>
+        <Box>
+            <Box className='HeaderContainer' style={{display: 'flex'}}>
+                <Typography variant="h4" component="h1" gutterBottom sx={{ fontFamily: 'Racing Sans One, Arial, sans-serif' }}>
+                    Nova refeição
+                </Typography>
+                <img src={Melancia} style={{height: '50px', width: '50px', paddingLeft: '10px'}} alt='Imagem de halter no modelo pixel art'/>
+            </Box>
+            <hr style={{
+                border: 'none',
+                height: '1px',
+                backgroundColor: '#e0e0e0', // cinza bem claro
+                margin: '20px 0' // espaçamento vertical
+            }} />
+            <Box>
+                <TextField
+                    label="Nome da refeição"
+                    variant="outlined"
+                    onChange={(e) => setName(e.target.value)}
+                />
+                <TextField
+                    label="Tempo de preparação"
+                    variant="outlined"
+                    onChange={(e) => setPrepararionTime(e.target.value)}
+                    sx={{marginInline: 3,width: 200}}
+                />
                 <CheckBoxDayOfWeek onChange={setDaysOfWeek}/>
-            </div>
-            <h5>Adicionar ingredientes</h5>
+            </Box>
+
+            <Box className='HeaderContainer' style={{display: 'flex'}}>
+                <Typography variant="h4" component="h1" gutterBottom sx={{ fontFamily: 'Racing Sans One, Arial, sans-serif' }}>
+                    Adicionar ingredientes
+                </Typography>
+                <img src={OvoFrito} style={{height: '50px', width: '50px', paddingLeft: '10px'}} alt='Imagem de halter no modelo pixel art'/>
+            </Box>
+            <hr style={{
+                border: 'none',
+                height: '1px',
+                backgroundColor: '#e0e0e0', // cinza bem claro
+                margin: '20px 0' // espaçamento vertical
+            }} />
             {ingredients.map((ingredient) => (
                 <DisplayIngredient ingredient={ingredient}/>
             ))}
@@ -46,6 +82,6 @@ export const NewMeal = ({onSave}) => {
                 <IngredientEditor onSave={addIngredient} ingredient={selectedIngredient}/>
             }
             <button onClick={saveMeal}>Salvar</button>
-        </section>
+        </Box>
     )
 }
