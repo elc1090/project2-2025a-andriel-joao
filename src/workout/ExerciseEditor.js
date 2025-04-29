@@ -58,7 +58,6 @@ export const ExerciseEditor = ({exercise, onSave}) => {
                         label="Tempo médio de execução da série"
                         variant="outlined"
                         onChange={(e) => setExecutionTime(parseTime(e.target.value))}
-                        sx={{marginInline: 3, width: "300px"}}
                         type="time"
                         inputProps={{
                             step: 1,
@@ -66,7 +65,6 @@ export const ExerciseEditor = ({exercise, onSave}) => {
                         InputLabelProps={{
                             shrink: true,
                         }}
-                        onChange={(e) => setExecutionTime(e.target.value)}
                         sx={{marginInline: 3, width: "300px", mb: 2}}
                     />
                     <TextField
@@ -79,7 +77,6 @@ export const ExerciseEditor = ({exercise, onSave}) => {
                         label="Tempo de descanso entre séries"
                         variant="outlined"
                         onChange={(e) => setRestTime(parseTime(e.target.value))}
-                        sx={{marginInline: 3, width: "300px"}}
                         type="time"
                         inputProps={{
                           step: 1,
@@ -87,15 +84,12 @@ export const ExerciseEditor = ({exercise, onSave}) => {
                         InputLabelProps={{
                           shrink: true,
                         }}
-                        onChange={(e) => setRestTime(e.target.value)}
                         sx={{marginInline: 3, width: "300px", mb: 2}}
                     />
                     <TextField
                         label="Tempo total (somado)"
                         variant="standard"
                         value={formatTime(totalTime)}
-                        sx={{marginInline: 3}}  
-                        value={totalTime}
                         InputProps={{
                             readOnly: true,
                         }}
