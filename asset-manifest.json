@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/project2-2025a-andriel-joao/static/css/main.cc0aeeff.css",
-    "main.js": "/project2-2025a-andriel-joao/static/js/main.5bf44ee0.js",
+    "main.js": "/project2-2025a-andriel-joao/static/js/main.b3d6aca6.js",
     "static/js/453.d2ac3b57.chunk.js": "/project2-2025a-andriel-joao/static/js/453.d2ac3b57.chunk.js",
     "static/media/slide-banner-2-treinos.png": "/project2-2025a-andriel-joao/static/media/slide-banner-2-treinos.3c30c0448fb22c63a2b7.png",
     "static/media/slide-banner-1-receitas.png": "/project2-2025a-andriel-joao/static/media/slide-banner-1-receitas.bcad45a44f9f0890fe09.png",
@@ -12,11 +12,11 @@
     "static/media/slick.woff": "/project2-2025a-andriel-joao/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/project2-2025a-andriel-joao/index.html",
     "main.cc0aeeff.css.map": "/project2-2025a-andriel-joao/static/css/main.cc0aeeff.css.map",
-    "main.5bf44ee0.js.map": "/project2-2025a-andriel-joao/static/js/main.5bf44ee0.js.map",
+    "main.b3d6aca6.js.map": "/project2-2025a-andriel-joao/static/js/main.b3d6aca6.js.map",
     "453.d2ac3b57.chunk.js.map": "/project2-2025a-andriel-joao/static/js/453.d2ac3b57.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cc0aeeff.css",
-    "static/js/main.5bf44ee0.js"
+    "static/js/main.b3d6aca6.js"
   ]
 }
