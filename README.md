@@ -3,17 +3,15 @@
 ![Substitua a imagem ao lado por um screenshot do seu projeto](https://mdswanson.com/static/chops-ux-step-4.png "Screenshot do projeto")
 
 
-Acesso: Substitua este texto pela URL de deploy do projeto
+[Deploy no Git Hub pages](https://elc1090.github.io/project2-2025a-andriel-joao/)
 
 
 ### Desenvolvedores
-Substitua este texto pela identificação da dupla: nomes e cursos
+Andriel Prieto (Ciência da Computação) e João Pedro Sousa (Sistemas de Informação)
 
 
 ### Nosso produto
-
-Substitua este texto por uma descrição do que foi produzido: funcionalidades e relação com a temática "Conhecimento"
-
+Foi desenvolvida uma ferramenta que se integra às API's WGER e Open Food Facts e permite ao usuário montar treinos e refeições e encaixá-los na sua rotina, com o intuito de prover a usuários que disponham de pouco tempo livre um melhor controle do tempo que investem para se manter em forma.
 
 
 ### Desenvolvimento
@@ -23,10 +21,11 @@ Substitua este texto por uma descrição do processo de desenvolvimento, explica
 
 #### Tecnologias
 
-Substitua este trecho por uma lista detalhada de tecnologias usadas (tanto as básicas, como HTML e CSS, como as mais específicas, por exemplo algum framework para frontend, etc.):
-- ...
-- ...
-- 
+- HTML
+- CSS
+- Javascript
+- React
+- Material UI (biblioteca de componentes react)
 
 #### Ambiente de desenvolvimento
 
