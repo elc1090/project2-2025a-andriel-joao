@@ -1,5 +1,7 @@
+import { Accordion, AccordionDetails, AccordionSummary, Box, Paper, Stack } from "@mui/material";
 import { DisplayMeal } from "../meal/DisplayMeal";
 import { DisplayWorkout } from "../workout/DisplayWorkout";
+import { formatTime } from "../utils/Time";
 
 export const Days = ({workouts, meals}) => {
     
@@ -29,20 +31,49 @@ export const Days = ({workouts, meals}) => {
         <section>
             <h3>Planejamento diário</h3>
             {daysOfWeek.map((day) => (
-                <div>
-                    <h4>{day.label}</h4>
-                    <div>
-                        {getWorkoutsByDay(day.value).map((workout) => (
-                            <DisplayWorkout workout={workout}/>
-                        ))}
-                    </div>
-                    <div>
-                        {getMealsByDay(day.value).map((meal) => (
-                            <DisplayMeal meal={meal}/>
-                        ))}
-                    </div>
-                    <p>Tempo total gasto no dia: {getTotalTime(getWorkoutsByDay(day.value), getMealsByDay(day.value))}</p>
-                </div>
+                <Accordion>
+                    <AccordionSummary sx={{fontSize: "1.1em", fontWeight: 'bold'}}>
+                        {day.label}
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Box>
+                            <div style={{margin: '10px', textAlign: 'left', fontWeight: 'bold'}}>Treinos</div>
+                            <Stack spacing={1}>
+                                {getWorkoutsByDay(day.value).map((workout) => (
+                                    <Paper>    
+                                        <DisplayWorkout workout={workout}/>
+                                    </Paper>
+                                ))}
+                            </Stack>
+                        </Box>
+                        <Box>
+                            <div style={{margin: '10px', textAlign: 'left', fontWeight: 'bold'}}>Refeições</div>
+                            <Stack spacing={1}>
+                                {getMealsByDay(day.value).map((meal) => (
+                                    <Paper>    
+                                        <DisplayMeal meal={meal}/>
+                                    </Paper>
+                                ))}
+                            </Stack>
+                            <Stack sx={{marginTop: "15px"}} direction="row" spacing={2}>
+                                <Stack>
+                                    <div style={{ fontSize: "0.8em", color: "gray" }}>Total de proteínas</div>
+                                    <div>{getMealsByDay(day.value).reduce((sum, current) => sum + Number(current.totalProtein), 0)}</div>
+                                </Stack>
+                                <Stack>
+                                    <div style={{ fontSize: "0.8em", color: "gray" }}>Total de Calorias</div>
+                                    <div>{getMealsByDay(day.value).reduce((sum, current) => sum + Number(current.totalEnergy), 0)}</div>
+                                </Stack>
+                            </Stack>
+                        </Box>
+                        <Box>
+                            <Stack>
+                                <div style={{ fontSize: "0.8em", color: "gray" }}>Tempo total gasto no dia</div>
+                                <div>{formatTime(getTotalTime(getWorkoutsByDay(day.value), getMealsByDay(day.value)))}</div>
+                            </Stack>
+                        </Box>
+                    </AccordionDetails>
+                </Accordion>
             ))}
         </section>
     )
