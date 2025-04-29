@@ -8,6 +8,8 @@ import Box from '@mui/material/Box';
 import Trampolim from '../assets/trampolim.png';
 import Halteres from '../assets/pesos-academia.png';
 import TextField from '@mui/material/TextField';
+import Button from "@mui/material/Button";
+import SaveIcon from '@mui/icons-material/Save';
 
 export const NewWorkout = ({onSave}) => {
 
@@ -84,8 +86,16 @@ export const NewWorkout = ({onSave}) => {
                     <ExerciseEditor onSave={addExercise} exercise={selectedExercise} key={selectedExercise.id}/>
                 </Box>
             }
-            <article>
-                <button onClick={saveWorkout} type="button">Salvar</button>
+            <article style={{marginTop: 20}}>
+                <Button
+                    variant="contained"
+                    onClick={saveWorkout}
+                    endIcon={<SaveIcon/>}
+                    color="success"
+                    sx={{ m: 1, height: 50, width: 200}}
+                >
+                    Salvar 
+                </Button>
             </article>
         </Box>
     )

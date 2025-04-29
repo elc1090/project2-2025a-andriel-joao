@@ -4,6 +4,8 @@ import { DisplayWorkout } from "./DisplayWorkout";
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Bola from '../assets/bola.png'
+import Paper from '@mui/material/Paper';
+import Stack from '@mui/material/Stack';
 export const Workouts = ({workouts, setWorkouts}) => {
 
     const addWorkout = (addedWorkout) => {
@@ -28,9 +30,13 @@ export const Workouts = ({workouts, setWorkouts}) => {
                 backgroundColor: '#e0e0e0', // cinza bem claro
                 margin: '32px 0' // espaçamento vertical
             }} />
-            {workouts.map((workout) => (
-                <DisplayWorkout workout={workout} key={workout.name}/>
-            ))}
+            <Stack spacing={2}>
+                {workouts.map((workout) => (        
+                    <Paper>
+                        <DisplayWorkout workout={workout} key={workout.name}/>
+                    </Paper>
+                ))}
+            </Stack>
             <NewWorkout onSave={addWorkout}/>
         </Box>
     )

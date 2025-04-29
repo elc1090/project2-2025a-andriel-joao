@@ -2,7 +2,10 @@ import { useEffect, useState, useRef } from "react"
 import { findExerciseImage, getNameByLanguage } from "../functions/APIFunctions"
 import imageNotFound from '../assets/Image-not-found.png'
 import Typography from '@mui/material/Typography';
+import TextField from "@mui/material/TextField"
 import Box from '@mui/material/Box';
+import Button from "@mui/material/Button";
+import AddIcon from '@mui/icons-material/Add';
 
 export const ExerciseEditor = ({exercise, onSave}) => {
 
@@ -15,7 +18,7 @@ export const ExerciseEditor = ({exercise, onSave}) => {
     const saveExercise = () => {
         const exerciseEntry = {
             exercise: exercise,
-            series: setsNumber,
+            sets: setsNumber,
             executionTime: executionTime,
             reps: reps,
             restTime: restTime,
@@ -29,30 +32,77 @@ export const ExerciseEditor = ({exercise, onSave}) => {
     }, [executionTime, restTime, setsNumber])
 
     return (
-        <Box>
-            <div style={{display: 'flex'}}>
-                <div>
-                    <div>{getNameByLanguage(exercise, 2)}</div>
-                </div>
-                {/* todo: adicionar imagens dos músculos */}
-                <div>
-                    <input onChange={(e) => setSetsNumber(e.target.value)} placeholder="Séries"/>
-                </div>
-                <div>
-                    <input onChange={(e) => setExecutionTime(e.target.value)} placeholder="Tempo médio de execução da série"/>
-                </div>
-                <div>
-                    <input onChange={(e) => setReps(e.target.value)} placeholder="Repetições"/>
-                </div>
-                <div>
-                    <input onChange={(e) => setRestTime(e.target.value)} placeholder="Tempo de descanso entre séries"/>
-                </div>
-                <div>
-                    <div>total time</div>
-                    <input readOnly={true} value={totalTime}/>
-                </div>
-            </div>
-            <button onClick={saveExercise}>Adicionar</button>
-        </Box>
+        <Box sx={{backgroundColor: '#F8F8FF', height: 250}}>
+            <Box
+                component="form"
+                sx={{ flexWrap: 'wrap', gap: 2}}
+                noValidate
+                autoComplete="off"
+            >
+                <Box sx={{ width: "100%",height: 50, backgroundColor: "#F8F8FF"}}><br/>
+                    <Typography variant="h5" component="h1" gutterBottom sx={{marginInline: 3}}>
+                        Adicionar: {getNameByLanguage(exercise, 2)}
+                    </Typography>
+                </Box>
+                <br/>
+                {/* TODO: adicionar imagens dos músculos */}
+                <Box>
+                    <TextField
+                        label="Séries"
+                        variant="outlined"
+                        onChange={(e) => setSetsNumber(e.target.value)}
+                        sx={{marginInline: 3}}
+                    />
+                    <TextField
+                        label="Tempo médio de execução da série"
+                        variant="outlined"
+                        onChange={(e) => setExecutionTime(e.target.value)}
+                        sx={{marginInline: 3, width: "300px"}}
+                    />
+                    <TextField
+                        label="Repetições"
+                        variant="outlined"
+                        onChange={(e) => setReps(e.target.value)}
+                        sx={{marginInline: 3}}
+                    />
+                    <TextField
+                        label="Tempo de descanso entre séries"
+                        variant="outlined"
+                        onChange={(e) => setRestTime(e.target.value)}
+                        sx={{marginInline: 3, width: "300px"}}
+                    />
+                    <TextField
+                        label="Tempo total (somado)"
+                        variant="standard"
+                        value={totalTime}
+                        InputProps={{
+                            readOnly: true,
+                        }}
+                        sx={{marginInline: 3}}  
+                    />
+                </Box>
+                
+            </Box>
+            <Box
+                sx={{
+                    backgroundColor:"#F8F8FF",
+                    textAlign: "right",
+                    marginTop: 6,
+                }}
+            >
+                <Button
+                    variant="contained"
+                    onClick={saveExercise}
+                    color="warning"
+                    endIcon={<AddIcon/>}
+                    sx={{marginRight: 9.5, height: 50, width: 200}}
+                >
+                    Adicionar 
+                </Button>
+                
+            </Box>
+            <br/>
+         </Box>
+         
     )
 }
