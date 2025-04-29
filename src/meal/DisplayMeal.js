@@ -10,11 +10,13 @@ import Stack from '@mui/material/Stack';
 import { formatTime } from '../utils/Time';
 import { DisplayIngredient } from './DisplayIngredient';
 
-export const DisplayMeal = ({meal}) => {
+export const DisplayMeal = ({meal, icon}) => {
     return (
         <Accordion>
             <AccordionSummary sx={{fontSize: "1.1em"}}>
                 {meal.name}
+                <img src={icon} height={32} style={{marginInline: 10}}/>
+
             </AccordionSummary>
             <AccordionDetails>
                 <Stack spacing={1}>

@@ -10,11 +10,12 @@ import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import { formatTime } from '../utils/Time';
 
-export const DisplayWorkout = ({workout}) => {
+export const DisplayWorkout = ({workout, icon}) => {
     return (
         <Accordion>
             <AccordionSummary sx={{fontSize: "1.1em"}}>
                 {workout.name}
+                <img src={icon} height={32} style={{marginInline: 10}}/>
             </AccordionSummary>
             <AccordionDetails>
                 <Stack spacing={1} direction="row">
