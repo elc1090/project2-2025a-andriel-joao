@@ -33,7 +33,7 @@ export const ExerciseEditor = ({exercise, onSave}) => {
     }, [executionTime, restTime, setsNumber])
 
     return (
-        <Box sx={{backgroundColor: '#F8F8FF', height: 250}}>
+        <Box sx={{backgroundColor: '#F8F8FF', height: 240}}>
             <Box
                 component="form"
                 sx={{ flexWrap: 'wrap', gap: 2}}
@@ -102,7 +102,7 @@ export const ExerciseEditor = ({exercise, onSave}) => {
                 sx={{
                     backgroundColor:"#F8F8FF",
                     textAlign: "right",
-                    marginTop: 6,
+                    marginTop: 2,
                 }}
             >
                 <Button

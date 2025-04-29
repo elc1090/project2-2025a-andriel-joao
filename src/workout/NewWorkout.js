@@ -86,7 +86,7 @@ export const NewWorkout = ({onSave}) => {
                     <ExerciseEditor onSave={addExercise} exercise={selectedExercise} key={selectedExercise.id}/>
                 </Box>
             }
-            <article style={{marginTop: 20}}>
+            <article style={{marginTop: 60}}>
                 <Button
                     variant="contained"
                     onClick={saveWorkout}
