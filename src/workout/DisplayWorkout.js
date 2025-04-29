@@ -13,7 +13,7 @@ import { formatTime } from '../utils/Time';
 export const DisplayWorkout = ({workout}) => {
     return (
         <Accordion>
-            <AccordionSummary>
+            <AccordionSummary sx={{fontSize: "1.1em"}}>
                 {workout.name}
             </AccordionSummary>
             <AccordionDetails>

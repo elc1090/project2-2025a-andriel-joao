@@ -18,8 +18,8 @@ export const NewMeal = ({onSave}) => {
             preparationTime: preparationTime,
             daysOfWeek: daysOfWeek,
             ingredients: ingredients,
-            totalProtein: ingredients.reduce((sum, current) => sum + current.protein, 0),
-            totalEnergy: ingredients.reduce((sum, current) => sum + current.energy, 0)
+            totalProtein: ingredients.reduce((sum, current) => sum + Number(current.protein), 0),
+            totalEnergy: ingredients.reduce((sum, current) => sum + Number(current.energy), 0)
         }
         onSave(newMeal);
     }

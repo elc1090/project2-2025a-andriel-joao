@@ -4,8 +4,6 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import { getDayName } from '../utils/DaysOfWeek';
-import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import { getNameByLanguage } from "../functions/APIFunctions"
 import { formatTime } from '../utils/Time';

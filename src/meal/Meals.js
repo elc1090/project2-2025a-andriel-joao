@@ -1,5 +1,7 @@
 import { DisplayMeal } from "./DisplayMeal";
 import { NewMeal } from "./NewMeal";
+import Paper from '@mui/material/Paper';
+import Stack from '@mui/material/Stack';
 
 export const Meals = ({meals, setMeals}) => {
 
@@ -14,9 +16,13 @@ export const Meals = ({meals, setMeals}) => {
     return (
         <section>
             <h3>Refeições</h3>
+            <Stack spacing={2}>
             { meals.map((meal) => (
-                <DisplayMeal key={meal.name} meal={meal}/>
+                <Paper>
+                    <DisplayMeal key={meal.name} meal={meal}/>
+                </Paper>
             ))}
+            </Stack>
             <NewMeal onSave={addMeal}/>
         </section>
     )
