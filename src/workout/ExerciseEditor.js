@@ -52,7 +52,7 @@ export const ExerciseEditor = ({exercise, onSave}) => {
                         label="Séries"
                         variant="outlined"
                         onChange={(e) => setSetsNumber(e.target.value)}
-                        sx={{marginInline: 3}}
+                        sx={{marginInline: 3, mb: 2}}
                     />
                     <TextField
                         label="Tempo médio de execução da série"
@@ -66,12 +66,14 @@ export const ExerciseEditor = ({exercise, onSave}) => {
                         InputLabelProps={{
                             shrink: true,
                         }}
+                        onChange={(e) => setExecutionTime(e.target.value)}
+                        sx={{marginInline: 3, width: "300px", mb: 2}}
                     />
                     <TextField
                         label="Repetições"
                         variant="outlined"
                         onChange={(e) => setReps(e.target.value)}
-                        sx={{marginInline: 3}}
+                        sx={{marginInline: 3, mb: 2}}
                     />
                     <TextField
                         label="Tempo de descanso entre séries"
@@ -85,12 +87,19 @@ export const ExerciseEditor = ({exercise, onSave}) => {
                         InputLabelProps={{
                           shrink: true,
                         }}
+                        onChange={(e) => setRestTime(e.target.value)}
+                        sx={{marginInline: 3, width: "300px", mb: 2}}
                     />
                     <TextField
                         label="Tempo total (somado)"
                         variant="standard"
                         value={formatTime(totalTime)}
                         sx={{marginInline: 3}}  
+                        value={totalTime}
+                        InputProps={{
+                            readOnly: true,
+                        }}
+                        sx={{marginInline: 3, mb: 2}}  
                     />
                 </Box>
                 
