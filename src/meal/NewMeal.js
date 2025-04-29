@@ -8,6 +8,7 @@ import Melancia from '../assets/melancia.png';
 import Typography from "@mui/material/Typography";
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import { parseTime } from "../utils/Time";
 export const NewMeal = ({onSave}) => {
     
     const [ingredients, setIngredients] = useState([]); 
@@ -56,9 +57,16 @@ export const NewMeal = ({onSave}) => {
                 <TextField
                     label="Tempo de preparação"
                     variant="outlined"
-                    onChange={(e) => setPrepararionTime(e.target.value)}
+                    onChange={(e) => setPrepararionTime(parseTime(e.target.value))}
                     sx={{marginInline: 3,width: 200}}
-                />
+                    type="time"
+                    inputProps={{
+                        step: 1
+                    }}
+                    InputLabelProps={{
+                        shrink: true
+                    }}
+                />  
                 <CheckBoxDayOfWeek onChange={setDaysOfWeek}/>
             </Box>
 
