@@ -6,6 +6,7 @@ import TextField from "@mui/material/TextField"
 import Box from '@mui/material/Box';
 import Button from "@mui/material/Button";
 import AddIcon from '@mui/icons-material/Add';
+import { formatTime, parseTime } from "../utils/Time";
 
 export const ExerciseEditor = ({exercise, onSave}) => {
 
@@ -56,8 +57,15 @@ export const ExerciseEditor = ({exercise, onSave}) => {
                     <TextField
                         label="Tempo médio de execução da série"
                         variant="outlined"
-                        onChange={(e) => setExecutionTime(e.target.value)}
+                        onChange={(e) => setExecutionTime(parseTime(e.target.value))}
                         sx={{marginInline: 3, width: "300px"}}
+                        type="time"
+                        inputProps={{
+                            step: 1,
+                        }}
+                        InputLabelProps={{
+                            shrink: true,
+                        }}
                     />
                     <TextField
                         label="Repetições"
@@ -68,16 +76,20 @@ export const ExerciseEditor = ({exercise, onSave}) => {
                     <TextField
                         label="Tempo de descanso entre séries"
                         variant="outlined"
-                        onChange={(e) => setRestTime(e.target.value)}
+                        onChange={(e) => setRestTime(parseTime(e.target.value))}
                         sx={{marginInline: 3, width: "300px"}}
+                        type="time"
+                        inputProps={{
+                          step: 1,
+                        }}
+                        InputLabelProps={{
+                          shrink: true,
+                        }}
                     />
                     <TextField
                         label="Tempo total (somado)"
                         variant="standard"
-                        value={totalTime}
-                        InputProps={{
-                            readOnly: true,
-                        }}
+                        value={formatTime(totalTime)}
                         sx={{marginInline: 3}}  
                     />
                 </Box>
